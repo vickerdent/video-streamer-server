@@ -17,7 +17,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
@@ -49,6 +48,7 @@ libraries/*.so
 
 # PyInstaller
 *.manifest
+*.spec.bak
 
 # Logs
 logs/
