@@ -42,10 +42,6 @@ env.bak/
 venv.bak/
 *.pem
 
-# Library files
-libraries/*.dll
-libraries/*.so
-
 # PyInstaller
 *.manifest
 *.spec.bak
