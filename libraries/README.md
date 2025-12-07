@@ -45,7 +45,7 @@ If you have vMix installed:
 
 1. Download Open Media Transport Releases: https://github.com/openmediatransport/libomtnet/releases
 2. Extract the downloaded file
-3. Find `libomt.dll` and `libvmx.dll` in plugin folder
+3. Find `libomt.dll` and `libvmx.dll` in the Libraries/Winx64 folder
 4. Copy to this `libraries/` folder
 
 
