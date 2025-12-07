@@ -49,7 +49,6 @@ libraries/*.so
 
 # PyInstaller
 *.manifest
-*.spec.bak
 
 # Logs
 logs/
