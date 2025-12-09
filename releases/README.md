@@ -4,7 +4,7 @@ Download the latest stable version of Video Streamer Server.
 
 ## Latest Release
 
-### 📦 Version 1.0.0 (December 7, 2024)
+### 📦 Version 1.0.0 (December 7, 2025)
 
 **Initial public release** - Transform your Android phones into professional camera sources for vMix and OBS Studio!
 

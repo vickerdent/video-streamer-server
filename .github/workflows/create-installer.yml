@@ -1,0 +1,43 @@
+name: Create Installer
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  create-installer:
+    name: Create Windows Installer
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: windows-build
+          path: dist/
+      
+      - name: Install Inno Setup
+        run: |
+          choco install innosetup -y
+      
+      - name: Create installer
+        run: |
+          iscc installer/installer.iss
+      
+      - name: Upload installer
+        uses: actions/upload-artifact@v3
+        with:
+          name: installer
+          path: installer/output/*.exe
+      
+      - name: Add installer to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: installer/output/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

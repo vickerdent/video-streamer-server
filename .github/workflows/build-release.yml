@@ -1,0 +1,110 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build-windows:
+    name: Build Windows Executable
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r src/requirements.txt
+          pip install pyinstaller pillow
+      
+      - name: Convert PNG to ICO
+        run: |
+          python convert_icon.py
+      
+      - name: Check for OMT libraries
+        id: check_libs
+        shell: pwsh
+        run: |
+          if (Test-Path "libraries/libomt.dll") {
+            echo "libomt_exists=true" >> $env:GITHUB_OUTPUT
+          } else {
+            echo "libomt_exists=false" >> $env:GITHUB_OUTPUT
+            echo "⚠️ WARNING: libomt.dll not found"
+          }
+          if (Test-Path "libraries/libvmx.dll") {
+            echo "libvmx_exists=true" >> $env:GITHUB_OUTPUT
+          } else {
+            echo "libvmx_exists=false" >> $env:GITHUB_OUTPUT
+            echo "⚠️ WARNING: libvmx.dll not found"
+          }
+      
+      - name: Build executable
+        if: steps.check_libs.outputs.libomt_exists == 'true' && steps.check_libs.outputs.libvmx_exists == 'true'
+        run: |
+          pyinstaller build/video_streamer.spec --clean
+      
+      - name: Create portable ZIP
+        if: steps.check_libs.outputs.libomt_exists == 'true'
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}"
+          Compress-Archive -Path "dist/VideoStreamerServer.exe" -DestinationPath "dist/VideoStreamerServer-Portable-$version.zip"
+      
+      - name: Calculate checksums
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}"
+          
+          # SHA256
+          $sha256 = (Get-FileHash "dist/VideoStreamerServer.exe" -Algorithm SHA256).Hash
+          $sha256_zip = (Get-FileHash "dist/VideoStreamerServer-Portable-$version.zip" -Algorithm SHA256).Hash
+          
+          # MD5
+          $md5 = (Get-FileHash "dist/VideoStreamerServer.exe" -Algorithm MD5).Hash
+          $md5_zip = (Get-FileHash "dist/VideoStreamerServer-Portable-$version.zip" -Algorithm MD5).Hash
+          
+          # Save to file
+          @"
+          VideoStreamerServer.exe:
+          SHA256: $sha256
+          MD5: $md5
+          
+          VideoStreamerServer-Portable-$version.zip:
+          SHA256: $sha256_zip
+          MD5: $md5_zip
+          "@ | Out-File -FilePath "dist/CHECKSUMS.txt"
+          
+          echo "📝 Checksums saved to CHECKSUMS.txt"
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: |
+            dist/VideoStreamerServer.exe
+            dist/VideoStreamerServer-Portable-*.zip
+            dist/CHECKSUMS.txt
+      
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/VideoStreamerServer.exe
+            dist/VideoStreamerServer-Portable-*.zip
+            dist/CHECKSUMS.txt
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

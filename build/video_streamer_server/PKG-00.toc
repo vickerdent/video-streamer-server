@@ -1,0 +1,67 @@
+('D:\\Ongoing '
+ 'Work\\public-streamer\\build\\video_streamer_server\\VideoStreamerServer.pkg',
+ {'BINARY': True,
+  'DATA': True,
+  'EXECUTABLE': True,
+  'EXTENSION': True,
+  'PYMODULE': True,
+  'PYSOURCE': True,
+  'PYZ': False,
+  'SPLASH': True,
+  'SYMLINK': False},
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\build\\video_streamer_server\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\build\\video_streamer_server\\localpycs\\struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\build\\video_streamer_server\\localpycs\\pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\build\\video_streamer_server\\localpycs\\pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\build\\video_streamer_server\\localpycs\\pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyimod04_pywin32',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\build\\video_streamer_server\\localpycs\\pyimod04_pywin32.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('pyi_rth_multiprocessing',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_multiprocessing.py',
+   'PYSOURCE'),
+  ('pyi_rth_pyqt6',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pyqt6.py',
+   'PYSOURCE'),
+  ('vs_server_gui',
+   'D:\\Ongoing Work\\public-streamer\\src\\vs_server_gui.py',
+   'PYSOURCE')],
+ 'python314.dll',
+ True,
+ False,
+ False,
+ [],
+ None,
+ None,
+ None)

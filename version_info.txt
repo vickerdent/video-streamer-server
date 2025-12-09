@@ -19,7 +19,7 @@ VSVersionInfo(
             StringStruct(u'FileDescription', u'Video Streamer Server - Multi-camera OMT Streaming'),
             StringStruct(u'FileVersion', u'1.0.0.0'),
             StringStruct(u'InternalName', u'VideoStreamerServer'),
-            StringStruct(u'LegalCopyright', u'Copyright © 2024 Vickerdent Corporation'),
+            StringStruct(u'LegalCopyright', u'Copyright © 2025 Vickerdent Corporation'),
             StringStruct(u'OriginalFilename', u'VideoStreamerServer.exe'),
             StringStruct(u'ProductName', u'Video Streamer Server'),
             StringStruct(u'ProductVersion', u'1.0.0.0')
