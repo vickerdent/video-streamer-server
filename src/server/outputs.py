@@ -56,11 +56,12 @@ class NativeWindowsOutput(FrameOutput):
 class OMTOutput(FrameOutput):
     """OMT output wrapper with dynamic reconfiguration"""
     
-    def __init__(self, name: str, lib_path: str = "libomt.dll"):
+    def __init__(self, name: str, lib_path: str = "libomt.dll", quality: int = 50):
         self.name = name
         self.lib_path = lib_path
+        self.quality = quality
         self.sender = OMTSender(lib_path)
-        if not self.sender.create_sender(name, OMTQuality.Medium):
+        if not self.sender.create_sender(name, quality):
             raise RuntimeError("Failed to create OMT sender")
         
         # Track current configuration
@@ -103,6 +104,27 @@ class OMTOutput(FrameOutput):
             
         except Exception as e:
             logger.error(f"❌ Failed to reconfigure OMT: {e}")
+            return False
+        
+    def update_quality(self, quality_value: int):
+        """Update OMT sender quality dynamically"""
+        logger.info(f"🔄 Updating OMT quality for {self.name}: {quality_value}")
+        
+        try:
+            # Destroy old sender
+            self.sender.destroy()
+            
+            # Create new sender with new quality
+            self.sender = OMTSender(self.lib_path)
+            if not self.sender.create_sender(self.name, quality_value):
+                logger.error("Failed to recreate OMT sender with new quality")
+                return False
+            
+            logger.info("✅ OMT quality updated successfully")
+            return True
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to update OMT quality: {e}")
             return False
     
     def send_video_frame(self, frame: np.ndarray, width: int, height: int, timestamp: int = -1) -> bool:

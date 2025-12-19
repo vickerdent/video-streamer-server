@@ -110,6 +110,23 @@ class Theme:
                 background-color: #58a6ff;
                 border-color: #58a6ff;
             }
+            QCheckBox {
+                color: #e6edf3;
+                spacing: 8px;
+                padding: 4px;
+            }
+            QCheckBox::indicator {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #30363d;
+                border-radius: 3px;
+                background-color: #0d1117;
+            }
+            QCheckBox::indicator:checked {
+                background-color: #58a6ff;
+                border-color: #58a6ff;
+                image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDEyIDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjUgMS41TDQuNSA3LjUgMS41IDQuNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
+            }
             QProgressBar {
                 border: 1px solid #30363d;
                 border-radius: 4px;
@@ -204,6 +221,23 @@ class Theme:
             QRadioButton::indicator:checked {
                 background-color: #0969da;
                 border-color: #0969da;
+            }
+            QCheckBox {
+                color: #24292f;
+                spacing: 8px;
+                padding: 4px;
+            }
+            QCheckBox::indicator {
+                width: 18px;
+                height: 18px;
+                border: 2px solid #d0d7de;
+                border-radius: 3px;
+                background-color: #ffffff;
+            }
+            QCheckBox::indicator:checked {
+                background-color: #0969da;
+                border-color: #0969da;
+                image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDEyIDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjUgMS41TDQuNSA3LjUgMS41IDQuNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=);
             }
             QProgressBar {
                 border: 1px solid #d0d7de;

@@ -3,7 +3,8 @@ from typing import Any
 import netifaces
 import logging
 
-from .config import StreamConfig
+from server.config import StreamConfig
+
 from .outputs import OMTOutput, NativeWindowsOutput
 from .handler import PhoneStreamHandler
 
@@ -17,7 +18,7 @@ logger = logging.getLogger(__name__)
 class OMTBridgeServer:
     """Main server managing multiple phone streams"""
     
-    def __init__(self, output_type: str = "omt", omt_lib_path: str = "libomt.dll", bind_ip: str | None = None):
+    def __init__(self, output_type: str = "omt", omt_lib_path: str = "libomt.dll", bind_ip: str | None = None, omt_quality: int = 50):
         """
         Initialize bridge server
         
@@ -29,19 +30,22 @@ class OMTBridgeServer:
         self.output_type = output_type.lower()
         self.omt_lib_path = omt_lib_path
         self.bind_ip = bind_ip
+        self.omt_quality = omt_quality
         self.streams = {}
         self.servers = []
         self.outputs = {}  # Track all outputs for proper cleanup
         self.active_handlers = {} # Track active connection handlers
         self._disconnect_signal_callback: Any | None = None
-        
-        # Default configuration for 4 phones
-        self.configs = [
-            StreamConfig(1, 5000, "Camera 1", 1280, 720, 30),
-            StreamConfig(2, 5001, "Camera 2", 1280, 720, 30),
-            StreamConfig(3, 5002, "Camera 3", 1280, 720, 30),
-            StreamConfig(4, 5003, "Camera 4", 1280, 720, 30),
-        ]
+        self._network_status_callback: Any | None = None
+        self.configs: list[StreamConfig] = [] # Configs will be set by ServerThread before starting
+
+        # Track active connections per port to prevent duplicates
+        self.port_connections = {}  # port -> handler mapping
+        self.connection_lock = asyncio.Lock()  # Lock for thread-safe access
+
+        # Network monitoring
+        self.current_bind_ip = None
+        self.network_monitor_task = None
 
     def get_local_ip_addresses(self):
         """Get all local IP addresses from all network interfaces"""
@@ -118,6 +122,9 @@ class OMTBridgeServer:
             else:
                 logger.warning("⚠️ No network interfaces found, binding to all (0.0.0.0)")
                 bind_address = '0.0.0.0'
+
+        # Store the bind address for monitoring
+        self.current_bind_ip = bind_address
         
         # Create servers for each phone
         for config in self.configs:
@@ -126,14 +133,42 @@ class OMTBridgeServer:
                 if self.output_type == "native":
                     output = NativeWindowsOutput(config.width, config.height, config.fps, config.phone_id)
                 else:  # Default to OMT
-                    output = OMTOutput(config.name, self.omt_lib_path)
+                    output = OMTOutput(config.name, self.omt_lib_path, self.omt_quality)
                 
                 handler = PhoneStreamHandler(config, output)
                 self.streams[config.phone_id] = handler
                 self.outputs[config.phone_id] = output  # Track for cleanup
 
-                def make_handler(handler, phone_id):
+                def make_handler(handler, phone_id, port_number):
                     async def client_handler_wrapper(reader, writer):
+                        addr = writer.get_extra_info('peername')
+
+                        # Check if this port already has an active connection
+                        async with self.connection_lock:
+                            if port_number in self.port_connections:
+                                existing_handler = self.port_connections[port_number]
+                                if existing_handler and existing_handler.running:
+                                    logger.error(
+                                        f"❌ REJECTED: Phone trying to connect to port {port_number} "
+                                        f"which already has an active connection from {existing_handler.writer.get_extra_info('peername') if existing_handler.writer else 'unknown'}"
+                                    )
+                                    logger.error(f"   New connection from {addr[0]}:{addr[1]} was DENIED")
+                                    
+                                    # Send rejection message and close
+                                    try:
+                                        writer.write(b"ERROR: Port already in use\n")
+                                        await writer.drain()
+                                        writer.close()
+                                        await writer.wait_closed()
+                                    except Exception as e:
+                                        logger.error(f"Error sending rejection: {e}")
+                                    
+                                    return
+                            
+                            # Register this connection
+                            self.port_connections[port_number] = handler
+                            logger.info(f"✅ Port {port_number} assigned to connection from {addr[0]}:{addr[1]}")
+                        
                         # Register active handler
                         self.active_handlers[phone_id] = handler
                         try:
@@ -141,11 +176,18 @@ class OMTBridgeServer:
                         finally:
                             # Unregister when done
                             self.active_handlers.pop(phone_id, None)
+
+                            # Clear port assignment
+                            async with self.connection_lock:
+                                if self.port_connections.get(port_number) == handler:
+                                    self.port_connections.pop(port_number, None)
+                                    logger.info(f"🔓 Port {port_number} released")
+
                     return client_handler_wrapper
                 
                 # Bind to specific IP or all interfaces
                 server = await asyncio.start_server(
-                    make_handler(handler, config.phone_id),
+                    make_handler(handler, config.phone_id, config.port),
                     bind_address,  # Use selected IP instead of '0.0.0.0'
                     config.port,
                     reuse_address=True  # Allow quick restart
@@ -157,6 +199,9 @@ class OMTBridgeServer:
                 logger.info(f"📱 Phone {config.phone_id} → {addr[0]}:{addr[1]}")
             except Exception as e:
                 logger.error(f"❌ Failed to create output for Phone {config.phone_id}: {e}")
+
+        # Start network monitoring AFTER servers are created
+        self.network_monitor_task = asyncio.create_task(self.monitor_network())
         
         logger.info("=" * 60)
         if self.output_type == "native":
@@ -168,7 +213,7 @@ class OMTBridgeServer:
             logger.info("   Once running, cameras appear in Zoom, Teams, Meet, Discord, OBS, etc.")
         else:
             logger.info("✅ Bridge ready! Streaming to vMix via OMT protocol")
-            logger.info("   Add OMT inputs to vMix: M-Camera 1, M-Camera 2, M-Camera 3, M-Camera 4")
+            logger.info("   Add OMT inputs to vMix: Camera 1, Camera 2, Camera 3, Camera 4")
         
         logger.info("")
         logger.info("📱 Connect your phone to these addresses:")
@@ -188,10 +233,103 @@ class OMTBridgeServer:
             logger.info("\n👋 Shutting down...")
         finally:
             await self.stop()
+
+    def update_omt_quality(self, quality_value: int):
+        """Update OMT quality for all outputs"""
+        logger.info(f"Updating OMT quality to {quality_value}")
+        for phone_id, output in self.outputs.items():
+            if isinstance(output, OMTOutput):
+                try:
+                    output.update_quality(quality_value)
+                except Exception as e:
+                    logger.error(f"Failed to update quality for phone {phone_id}: {e}")
+
+    async def monitor_network(self):
+        """Monitor network availability"""
+        last_status = True  # Assume network is up initially
+        consecutive_failures = 0
+        max_failures = 2  # Require 2 consecutive failures before declaring network down
+
+        logger.info(f"🔍 Network monitoring started for {self.current_bind_ip}")
+
+        while True:
+            try:
+                await asyncio.sleep(2)  # Check every 2 seconds
+                
+                # Check if our bind IP is still available
+                if self.current_bind_ip and self.current_bind_ip != '0.0.0.0':
+                    current_ips = self.get_local_ip_addresses()
+                    ip_still_exists = any(
+                        addr['ip'] == self.current_bind_ip 
+                        for addr in current_ips
+                    )
+
+                    # Count consecutive failures to avoid false positives
+                    if not ip_still_exists:
+                        consecutive_failures += 1
+                        logger.debug(f"Network check failed ({consecutive_failures}/{max_failures})")
+                    else:
+                        consecutive_failures = 0
+                    
+                    # Network went down
+                    if not ip_still_exists and consecutive_failures >= max_failures and last_status:
+                        logger.error(f"❌ Network interface {self.current_bind_ip} is no longer available!")
+                        logger.error("   The server is not reachable until network is restored.")
+                        
+                        last_status = False
+                        
+                        # Notify GUI IMMEDIATELY
+                        if self._network_status_callback:
+                            try:
+                                logger.info("📡 Notifying GUI: Network DOWN")
+                                self._network_status_callback(False, self.current_bind_ip)
+                            except Exception as e:
+                                logger.error(f"Error in network status callback: {e}")
+                        
+                        # Disconnect all clients
+                        if self.active_handlers:
+                            logger.info(f"📴 Disconnecting {len(self.active_handlers)} client(s) due to network loss...")
+                            disconnect_tasks = []
+                            for phone_id, handler in list(self.active_handlers.items()):
+                                disconnect_tasks.append(handler.force_disconnect())
+                            
+                            if disconnect_tasks:
+                                await asyncio.gather(*disconnect_tasks, return_exceptions=True)
+                            
+                            logger.info("✅ All clients disconnected")
+                    
+                    # Network came back up
+                    elif ip_still_exists and not last_status:
+                        logger.info(f"✅ Network {self.current_bind_ip} restored!")
+                        last_status = True
+                        consecutive_failures = 0
+                        
+                        # Notify GUI of restoration
+                        if self._network_status_callback:
+                            try:
+                                logger.info("📡 Notifying GUI: Network UP")
+                                self._network_status_callback(True, self.current_bind_ip)
+                            except Exception as e:
+                                logger.error(f"Error in network status callback: {e}")
+                        
+            except asyncio.CancelledError:
+                logger.debug("Network monitoring cancelled")
+                break
+            except Exception as e:
+                logger.error(f"Network monitoring error: {e}")
+                await asyncio.sleep(10)
     
     async def stop(self):
         """Stop the server gracefully and disconnect all clients"""
         logger.info("\nStopping Bridge Server...")
+
+        # Cancel network monitoring
+        if self.network_monitor_task:
+            self.network_monitor_task.cancel()
+            try:
+                await self.network_monitor_task
+            except asyncio.CancelledError:
+                pass
 
         # Emit disconnect signals for GUI BEFORE closing connections
         if self._disconnect_signal_callback:
@@ -235,6 +373,13 @@ class OMTBridgeServer:
                 logger.warning(f"  Server {i+1} close timeout")
             except Exception as e:
                 logger.error(f"  Error closing server {i+1}: {e}")
+
+        # Clear the servers list
+        self.servers.clear()
+        
+        # Give OS time to release ports
+        logger.info("⏳ Waiting for port release...")
+        await asyncio.sleep(1.0)
         
         # Give handlers time to finish cleaning up
         logger.debug("⏳ Waiting for handlers to finish...")

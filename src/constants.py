@@ -6,9 +6,13 @@ Shared constants used across the application
 from pathlib import Path
 import sys
 
+# Import config
+from config import config as app_config
+
 # Application metadata
-APP_VERSION = "1.0.1"
+APP_VERSION = "2.0.0"
 APP_NAME = "Video Streamer Server"
+APP_CODE = "VSServer"
 ORGANIZATION_NAME = "Vickerdent Corporation"
 
 def get_resource_path(relative_path: str) -> Path:
@@ -39,3 +43,8 @@ ICON_PATH = get_resource_path("assets/app_logo.png")
 ICON_ICO_PATH = get_resource_path("assets/app_logo.ico")
 LIBOMT_DLL_PATH = get_resource_path("libraries/libomt.dll")
 LIBVMX_DLL_PATH = get_resource_path("libraries/libvmx.dll")
+
+# API Configuration
+API_BASE_URL = app_config.api_base_url
+UPDATE_CHECK_URL = app_config.update_check_url
+IS_DEVELOPMENT = app_config.is_development

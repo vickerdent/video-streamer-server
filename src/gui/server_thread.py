@@ -2,6 +2,7 @@ import asyncio
 import numpy as np
 from PyQt6.QtCore import QThread, pyqtSignal
 import logging
+from concurrent import futures
 
 # Import existing bridge components
 from server.bridge import OMTBridgeServer
@@ -20,14 +21,17 @@ class ServerThread(QThread):
     frame_received = pyqtSignal(int, np.ndarray) 
     error_occurred = pyqtSignal(str)
     server_stopped = pyqtSignal()
+    network_status_changed = pyqtSignal(bool, str)
     
-    def __init__(self, bind_ip, start_port, output_type='omt', lib_path='libomt.dll'):
+    def __init__(self, bind_ip, start_port, output_type='omt', lib_path='libomt.dll', camera_count=4, omt_quality='medium'):
         super().__init__()
         self.bind_ip = bind_ip
         self.start_port = start_port
         self.output_type = output_type
         self.lib_path = lib_path
-        self.server = None
+        self.camera_count = camera_count
+        self.omt_quality = omt_quality
+        self.server: OMTBridgeServer | None = None
         self.loop = None
         self.running = False
         self.shutdown_in_progress = False
@@ -36,10 +40,16 @@ class ServerThread(QThread):
         try:
             self.loop = asyncio.new_event_loop()
             asyncio.set_event_loop(self.loop)
-            
-            self.server = OMTBridgeServer(self.output_type, self.lib_path, self.bind_ip)
 
-            # Set up disconnect signal callback BEFORE patching handlers
+            # Map quality string to int
+            quality_map = {'low': 1, 'medium': 50, 'high': 100}
+            quality_value = quality_map.get(self.omt_quality, 50)
+
+            logger.info(f"Starting server with OMT quality: {self.omt_quality} ({quality_value})")
+            
+            self.server = OMTBridgeServer(self.output_type, self.lib_path, self.bind_ip, quality_value)
+
+            # Set up callbacks patching handlers
             def disconnect_signal_wrapper(phone_id, connected, info):
                 """Wrapper to emit disconnect signals safely"""
                 if self.running:  # Only emit if thread is still running
@@ -48,15 +58,40 @@ class ServerThread(QThread):
                     except RuntimeError:
                         logger.debug(f"Could not emit signal for phone {phone_id} (Qt cleaned up)")
             
-            self.server._disconnect_signal_callback = disconnect_signal_wrapper
+            def network_status_wrapper(available, ip):
+                logger.info(f"🔔 Network status callback triggered: available={available}, ip={ip}")
+                if self.running:
+                    try:
+                        self.network_status_changed.emit(available, ip)
+                        logger.debug(f"✅ Network status signal emitted: {available}")
+                    except RuntimeError as e:
+                        logger.debug(f"Could not emit network status signal: {e}")
+                    except Exception as e:
+                        logger.error(f"Error emitting network status: {e}")
+                else:
+                    logger.debug("Server not running, skipping network status signal")
             
-            for i, config in enumerate(self.server.configs):
-                config.port = self.start_port + i
+            self.server._disconnect_signal_callback = disconnect_signal_wrapper
+            self.server._network_status_callback = network_status_wrapper
+
+            logger.info("✅ Network status callback registered")
+            
+            # Configure ports dynamically based on camera_count
+            self.server.configs = []
+            for i in range(self.camera_count):
+                from server.config import StreamConfig
+                config = StreamConfig(
+                    i + 1, 
+                    self.start_port + i, 
+                    f"Camera {i + 1}", 
+                    1280, 720, 30
+                )
+                self.server.configs.append(config)
             
             self._patch_handlers()
             
             self.running = True
-            logger.info(f"Server starting on {self.bind_ip}:{self.start_port}")
+            logger.info(f"Server starting with {self.camera_count} cameras on {self.bind_ip}:{self.start_port}")
             
             self.loop.run_until_complete(self._run_server())
             
@@ -73,7 +108,7 @@ class ServerThread(QThread):
     
     async def _run_server(self):
         try:
-            await self.server.start() # type: ignore
+            await self.server.start() if self.server else None
         except asyncio.CancelledError:
             logger.info("Server start cancelled, cleaning up...")
             raise
@@ -157,8 +192,41 @@ class ServerThread(QThread):
                     logger.debug(f"Could not emit disconnect signal: {e}")
                 except Exception as e:
                     logger.error(f"Error emitting disconnect signal: {e}", exc_info=True)
+
+                # Close the writer to signal client immediately
+                try:
+                    if writer and not writer.is_closing():
+                        writer.write_eof()  # Signal end of stream
+                        await writer.drain()
+                        writer.close()
+                        await asyncio.wait_for(writer.wait_closed(), timeout=2.0)
+                        logger.debug(f"Phone {handler.config.phone_id}: Connection closed gracefully")
+                except asyncio.TimeoutError:
+                    logger.warning(f"Phone {handler.config.phone_id}: Close timeout, forcing")
+                except Exception as e:
+                    logger.warning(f"Phone {handler.config.phone_id}: Error closing connection: {e}")
         
         PhoneStreamHandler.handle_client = patched_handle # type: ignore
+
+    def update_omt_quality(self, quality_value: int):
+        """Update OMT quality for all streams"""
+        if self.loop and self.server:
+            try:
+                future = asyncio.run_coroutine_threadsafe(
+                    self._async_update_quality(quality_value), 
+                    self.loop
+                )
+                future.result(timeout=5)
+            except Exception as e:
+                logger.error(f"Error updating OMT quality: {e}")
+
+    async def _async_update_quality(self, quality_value: int):
+        """Async wrapper for updating quality"""
+        try:
+            if self.server:
+                self.server.update_omt_quality(quality_value)
+        except Exception as e:
+            logger.error(f"Error in _async_update_quality: {e}")
 
     def cleanup_loop(self):
         """Properly cleanup asyncio loop"""
@@ -196,6 +264,9 @@ class ServerThread(QThread):
                 try:
                     future.result(timeout=5)
                     logger.info("✅ Server stopped successfully")
+                except futures.CancelledError:
+                    # This is expected when the loop is already closing
+                    logger.debug("Stop task was cancelled (loop closing)")
                 except asyncio.TimeoutError:
                     logger.warning("⚠️  Server stop timed out after 5 seconds")
             except Exception as e:
@@ -215,5 +286,8 @@ class ServerThread(QThread):
         try:
             if self.server:
                 await self.server.stop()
+
+                # Give a moment for cleanup
+                await asyncio.sleep(0.5)
         except Exception as e:
             logger.error(f"Error stopping: {e}")

@@ -46,6 +46,7 @@ venv.bak/
 # PyInstaller
 *.manifest
 *.spec.bak
+build/video_streamer_server
 
 # Logs
 logs/

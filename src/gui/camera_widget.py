@@ -28,6 +28,7 @@ class CameraWidget(QWidget):
         self.video_receiver = None
         self.frame_count = 0
         self.last_pixmap = None
+        self.preview_paused = False
         self.setup_ui()
         
     def setup_ui(self):
@@ -131,12 +132,6 @@ class CameraWidget(QWidget):
                 self.status_label.setText("🔴 Disconnected")
                 self.info_label.setText(f"Port {self.port} • Waiting for connection")
                 self.stats_label.setText("")
-                
-                # Stop video receiver safely
-                try:
-                    self.stop_video_receiver()
-                except Exception as e:
-                    logger.error(f"Error stopping video receiver for camera {self.cam_id}: {e}")
 
                 # Clear handler reference
                 self.handler = None
@@ -150,31 +145,24 @@ class CameraWidget(QWidget):
                     
         except Exception as e:
             logger.error(f"Critical error in set_connected for camera {self.cam_id}: {e}", exc_info=True)
-    
-    # def start_video_receiver(self):
-    #     if self.video_receiver:
-    #         self.stop_video_receiver()
-        
-    #     if self.handler:
-    #         self.video_receiver = VideoFrameReceiver(self.cam_id, self.handler)
-    #         self.video_receiver.frame_ready.connect(self.display_frame)
-    #         self.video_receiver.start()
-    
-    def stop_video_receiver(self):
-        if self.video_receiver:
-            self.video_receiver.stop()
-            self.video_receiver.wait(2000)
-            self.video_receiver.deleteLater()  # Schedule for deletion
-            self.video_receiver = None
 
-        # Clear last pixmap
-        if self.last_pixmap:
-            del self.last_pixmap
-            self.last_pixmap = None
+    def pause_preview(self):
+        """Pause video preview updates to save resources"""
+        self.preview_paused = True
+        logger.debug(f"Camera {self.cam_id}: Preview paused")
+
+    def resume_preview(self):
+        """Resume video preview updates"""
+        self.preview_paused = False
+        logger.debug(f"Camera {self.cam_id}: Preview resumed")
     
     def display_frame(self, cam_id, frame):
         """Display incoming video frame from server thread"""
         if cam_id != self.cam_id:
+            return
+        
+        # Skip frame processing if paused
+        if self.preview_paused:
             return
         
         try:

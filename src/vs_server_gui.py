@@ -219,9 +219,16 @@ def main():
         font = QFont("Segoe UI", 10)
         app.setFont(font)
         
-        # Step 5: Check for crash recovery
+        #  Step 5: Check for crash recovery - but skip if this is a restart
         last_state = CrashRecovery.load_last_state()
-        restore_session = CrashRecovery.offer_recovery(last_state) if last_state else False
+
+        # Check if this is a fresh restart (no previous crash)
+        # We can detect this by checking if the state has a 'crashed' flag
+        is_restart = last_state.get('is_restart', False) if last_state else False
+        restore_session = False
+        
+        if last_state and not is_restart:
+            restore_session = CrashRecovery.offer_recovery(last_state)
         
         # Step 6: Create main window
         window = MainWindow(fallback_mode, restore_session, last_state)
@@ -230,11 +237,14 @@ def main():
         
         # Step 7: Setup auto-save state (every 30 seconds)
         auto_save_timer = QTimer()
-        auto_save_timer.timeout.connect(lambda: CrashRecovery.save_state({
-            'start_port': window.start_port,
-            'theme_mode': window.theme_mode,
-            'network_ip': window.network['ip'] if window.network else None,
-        }))
+        def save_current_state():
+            CrashRecovery.save_state({
+                'start_port': window.start_port,
+                'theme_mode': window.theme_mode,
+                'network_ip': window.network['ip'] if window.network else None,
+                'is_restart': False,  # Mark as normal state
+            })
+        auto_save_timer.timeout.connect(save_current_state)
         auto_save_timer.start(30000)  # 30 seconds
         
         # Step 8: Run application

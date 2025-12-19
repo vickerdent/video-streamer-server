@@ -221,7 +221,7 @@ def recommend_settings(interfaces):
             
             print(f"\n   {status} Option {idx}: {iface['ip']} ({iface['friendly_name']})")
             print(f"      {iface['network_type']}")
-            print(f"      Command: python omt_bridge_tcp.py --bind-ip {iface['ip']}")
+            print(f"      Command: python src\\omt_bridge_tcp.py --bind-ip {iface['ip']}")
             
             if not can_bind:
                 print("      ⚠️  Cannot bind to this IP (may be in use or restricted)")

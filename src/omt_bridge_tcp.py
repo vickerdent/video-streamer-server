@@ -32,6 +32,7 @@ def main():
     parser.add_argument("--native-camera", action="store_true", help="Enable native Windows camera device")
     parser.add_argument("--omt", action="store_true", help="Use OMT protocol for vMix (default)")
     parser.add_argument("--bind-ip", type=str, help="Specific IP address to bind to (e.g., 192.168.1.100)")
+    parser.add_argument("--camera-count", type=int, default=4, help="Number of cameras, up to 8 (e.g., 4)")
     args = parser.parse_args()
     
     output_type = "native" if args.native_camera else "omt"
@@ -59,6 +60,17 @@ def main():
         omt_lib_path=lib_path_full,
         bind_ip=args.bind_ip  # Allow specifying bind IP
     )
+
+    from server.config import StreamConfig
+    server.configs = []
+    for i in range(int(args.camera_count)):
+        config = StreamConfig(
+            i + 1, 
+            5000 + i,  # Default ports starting at 5000
+            f"Camera {i + 1}", 
+            1280, 720, 30
+        )
+        server.configs.append(config)
     
     try:
         asyncio.run(server.start())
