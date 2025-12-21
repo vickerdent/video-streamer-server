@@ -10,7 +10,7 @@ from pathlib import Path
 from config import config as app_config
 
 # Application metadata
-APP_VERSION = "2.0.1"
+APP_VERSION = "2.0.2"
 APP_NAME = "Video Streamer Server"
 APP_CODE = "VSServer"
 ORGANIZATION_NAME = "Vickerdent Corporation"

@@ -2,7 +2,9 @@ import logging
 import os
 import sys
 from pathlib import Path
+from typing import Any
 
+import numpy as np
 from PyQt6.QtCore import QSettings, Qt, QTimer
 from PyQt6.QtGui import QAction, QColor, QFont, QIcon, QPixmap
 from PyQt6.QtWidgets import (
@@ -536,7 +538,7 @@ class MainWindow(QMainWindow):
         self.update_camera_count()
         self.update_all_camera_displays()
 
-    def on_connection_changed(self, cam_id, connected, info):
+    def on_connection_changed(self, cam_id: int, connected: bool, info: dict[str, Any]):
         try:
             # Validate camera ID
             if not (1 <= cam_id <= self.running_camera_count):  # Use dynamic count
@@ -568,7 +570,12 @@ class MainWindow(QMainWindow):
             try:
                 icon = "🟢" if connected else "🔴"
                 port = self.start_port + cam_id - 1
-                self.tabs.setTabText(cam_id - 1, f"{icon} Camera {cam_id}: {port}")
+                tab_text = f"{icon} Camera {cam_id}: {port}"
+                if connected and info and "latency" in info:
+                    latency_ms = info["latency"] * 1000
+                    tab_text += f" ({latency_ms:.0f}ms)"
+
+                self.tabs.setTabText(cam_id - 1, tab_text)
             except Exception as e:
                 logger.error(
                     f"Error updating tab text for camera {cam_id}: {e}", exc_info=True
@@ -586,7 +593,7 @@ class MainWindow(QMainWindow):
                 exc_info=True,
             )
 
-    def on_frame_received(self, cam_id, frame):
+    def on_frame_received(self, cam_id: int, frame: np.ndarray):
         """Route frames to correct camera widget"""
         # Use actual widget count (not self.camera_count which may be pending change)
         max_camera_id = self.running_camera_count if self.running else len(self.cameras)
