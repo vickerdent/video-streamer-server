@@ -132,8 +132,8 @@ class MainWindow(QMainWindow):
         if icon_path.exists():
             icon_label = QLabel()
             pixmap = QPixmap(str(icon_path)).scaled(
-                60,
-                60,
+                50,
+                50,
                 Qt.AspectRatioMode.KeepAspectRatio,
                 Qt.TransformationMode.SmoothTransformation,
             )
