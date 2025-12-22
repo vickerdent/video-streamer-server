@@ -571,9 +571,6 @@ class MainWindow(QMainWindow):
                 icon = "🟢" if connected else "🔴"
                 port = self.start_port + cam_id - 1
                 tab_text = f"{icon} Camera {cam_id}: {port}"
-                if connected and info and "latency" in info:
-                    latency_ms = info["latency"] * 1000
-                    tab_text += f" ({latency_ms:.0f}ms)"
 
                 self.tabs.setTabText(cam_id - 1, tab_text)
             except Exception as e:

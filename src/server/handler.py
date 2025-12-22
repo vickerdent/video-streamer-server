@@ -131,16 +131,16 @@ class PhoneStreamHandler:
 
             # Initialize decoders AFTER receiving config
             self.video_decoder = av.CodecContext.create("h264", "r")
-            self.video_decoder.thread_type = "NONE"
-            self.video_decoder.thread_count = 1
+            self.video_decoder.thread_type = "AUTO"
+            self.video_decoder.thread_count = 2
 
             # Ultra low latency options
             self.video_decoder.options = {
                 "flags": "low_delay",  # Enable low delay mode
                 "flags2": "fast",  # Fast decoding
-                "fflags": "nobuffer",  # Don't buffer frames
-                "analyzeduration": "0",  # Don't analyze stream
-                "probesize": "32",  # Minimal probe
+                # "fflags": "nobuffer",  # Don't buffer frames
+                # "analyzeduration": "0",  # Don't analyze stream
+                # "probesize": "32",  # Minimal probe
                 "sync": "ext",  # External sync
             }
 
@@ -175,6 +175,9 @@ class PhoneStreamHandler:
             logger.info(
                 f"⏳ Phone {self.config.phone_id}: Ready for streaming ({', '.join(status_parts)})"
             )
+
+            frame_decode_failures = 0
+            max_decode_failures = 30  # (1 second at 30fps)
 
             # Main streaming loop
             while self.running and not self._force_stop:
@@ -274,6 +277,46 @@ class PhoneStreamHandler:
                     decoded = await self.process_video_frame(data, flags, receive_time)
                     if decoded:
                         video_frames_decoded += 1
+                        frame_decode_failures = 0  # reset on success
+                    else:
+                        frame_decode_failures += 1
+
+                        # Decoder recovery
+                        if frame_decode_failures >= max_decode_failures:
+                            logger.warning(
+                                f"⚠️ Phone {self.config.phone_id}: {frame_decode_failures} consecutive decode failures, "
+                                f"resetting decoder..."
+                            )
+                            try:
+                                # Don't try to flush - just abandon and recreate
+                                self.video_decoder = None  # Release reference
+
+                                # Small delay to let things settle
+                                await asyncio.sleep(0.1)
+
+                                # Create fresh decoder
+                                self.video_decoder = av.CodecContext.create("h264", "r")
+                                self.video_decoder.thread_type = "AUTO"
+                                self.video_decoder.thread_count = 2
+                                self.video_decoder.options = {
+                                    "flags": "low_delay",
+                                    "flags2": "fast",
+                                }
+
+                                frame_decode_failures = 0
+                                logger.info(
+                                    f"✅ Phone {self.config.phone_id}: Decoder recreated"
+                                )
+
+                                # Skip this frame and continue
+                                continue
+                            except Exception as e:
+                                logger.error(f"❌ Failed to recreate decoder: {e}")
+                                # Don't break - try to continue, it might recover
+                                frame_decode_failures = (
+                                    0  # Reset to avoid immediate retry
+                                )
+
                 elif frame_type == FRAME_TYPE_AUDIO and self.audio_enabled:
                     decoded = await self.process_audio_frame(data, flags, receive_time)
                     if decoded:
@@ -310,28 +353,6 @@ class PhoneStreamHandler:
                                 )
                     except Exception as e:
                         logger.warning(f"Failed to parse metadata: {e}")
-
-                # Periodic decoder flush to prevent memory buildup
-                current_time = time.time()
-                if current_time - self.last_flush_time > self.flush_interval:
-                    try:
-                        # Flush video decoder
-                        if self.video_decoder:
-                            list(self.video_decoder.decode(None))
-                            logger.debug(
-                                f"Phone {self.config.phone_id}: Periodic video decoder flush"
-                            )
-
-                        # Flush audio decoder
-                        if self.audio_decoder and self.audio_enabled:
-                            list(self.audio_decoder.decode(None))
-                            logger.debug(
-                                f"Phone {self.config.phone_id}: Periodic audio decoder flush"
-                            )
-
-                        self.last_flush_time = current_time
-                    except Exception as e:
-                        logger.warning(f"Error during periodic flush: {e}")
 
                 # Periodic logging (every 3 seconds)
                 if frames_received % 90 == 0:
@@ -519,25 +540,38 @@ class PhoneStreamHandler:
                     logger.warning(f"⚠️ Codec config decode warning: {e}")
                 return False
 
-            # Decode H.264
+            # Create packet
             packet = av.Packet(data)
 
+            # Set packet flags to indicate keyframe
+            if flags & 0x1:  # BUFFER_FLAG_KEY_FRAME
+                packet.is_keyframe = True
+
             try:
-                frames = list(self.video_decoder.decode(packet))  # type: ignore
-            except (av.InvalidDataError, av.EOFError) as e:
-                logger.debug(f"Video decode error: {e}")
-                return False
+                # Decode with timeout protection
+                frames = []
+                decode_start = time.time()
 
-            if not frames:
-                return False
+                for frame in self.video_decoder.decode(packet):  # type: ignore
+                    frames.append(frame)
+                    # Safety: don't decode for more than 100ms
+                    if time.time() - decode_start > 0.1:
+                        logger.warning("⚠️ Decode taking too long, limiting frames")
+                        break
 
-            for frame in frames:
+                if not frames:
+                    return False
+
+                # Process only the LAST frame if multiple (drop intermediate frames)
+                frame = frames[-1] if len(frames) > 1 else frames[0]
+
+                if len(frames) > 1:
+                    logger.debug(f"Decoded {len(frames)} frames, using last one")
+
                 nv12_data = self.frame_to_nv12(frame)
-
-                # Store for GUI access
                 self._last_nv12_frame = nv12_data
 
-                # Send to OMT IMMEDIATELY
+                # Send to OMT
                 success = self.output.send_video_frame(
                     nv12_data,
                     self.current_width,
@@ -554,22 +588,25 @@ class PhoneStreamHandler:
                             f"✅ Phone {self.config.phone_id}: First video frame sent!"
                         )
 
-                # Explicitly delete frame to free memory
-                del frame
+                # Track latency
+                end_time = time.time()
+                latency = end_time - receive_time
+                self.latency_samples.append(latency)
 
-            # Delete frames list
-            del frames
+                return True
 
-            # Track latency
-            end_time = time.time()
-            latency = end_time - receive_time
-            self.latency_samples.append(latency)
-
-            return True
+            except (av.InvalidDataError, av.EOFError):
+                # Expected decode errors - don't log unless frequent
+                return False
+            except Exception as e:
+                logger.error(
+                    f"❌ Error processing video for Phone {self.config.phone_id}: {e}"
+                )
+                return False
 
         except Exception as e:
             logger.error(
-                f"❌ Error processing video for Phone {self.config.phone_id}: {e}"
+                f"❌ Error in process_video_frame for Phone {self.config.phone_id}: {e}"
             )
             return False
 
@@ -613,20 +650,18 @@ class PhoneStreamHandler:
                     )
 
                     logger.info(
-                        f"✅ Phone {self.config.phone_id}: AAC config: {sample_rate}Hz, {self.aac_channel_config}ch (sr_idx={self.aac_sample_rate_index})"
+                        f"✅ Phone {self.config.phone_id}: AAC config: {sample_rate}Hz, "
+                        f"{self.aac_channel_config}ch (sr_idx={self.aac_sample_rate_index})"
                     )
 
-                packet = av.Packet(data)
-                try:
-                    list(self.audio_decoder.decode(packet))  # type: ignore
-                except Exception as e:
-                    logger.warning(f"⚠️ Audio codec config warning: {e}")
+                # DON'T try to decode config packet - just save the info
                 return False
 
             # Log first non-config audio frame
             if self.audio_frame_count == 0:
                 logger.info(
-                    f"🎵 Phone {self.config.phone_id}: First audio data frame, size={len(data)}, flags={flags:04x}"
+                    f"🎵 Phone {self.config.phone_id}: First audio data frame, "
+                    f"size={len(data)}, flags={flags:04x}"
                 )
 
             # Add ADTS header to raw AAC frame
@@ -636,40 +671,49 @@ class PhoneStreamHandler:
             packet = av.Packet(aac_with_adts)
 
             try:
-                frames = list(self.audio_decoder.decode(packet))  # type: ignore
-            except (av.InvalidDataError, av.EOFError) as e:
+                frames = []
+                for frame in self.audio_decoder.decode(packet):  # type: ignore
+                    frames.append(frame)
+                    # Only process first frame to avoid backup
+                    break
+
+                if not frames:
+                    return False
+
+                audio_frame = frames[0]
+
                 if self.audio_frame_count == 0:
-                    logger.error(f"❌ Audio decode error on first frame: {e}")
-                return False
-
-            if not frames:
-                return False
-
-            audio_frame = frames[0]
-
-            if self.audio_frame_count == 0:
-                logger.info(
-                    f"🔊 Decoded: {audio_frame.sample_rate}Hz, {audio_frame.layout.name}, {audio_frame.samples} samples, format={audio_frame.format.name}"
-                )
-
-            # Send to OMT
-            success = self.output.send_audio_frame(audio_frame)
-
-            if success:
-                self.audio_frame_count += 1
-                if self.audio_frame_count == 1:
                     logger.info(
-                        f"✅ Phone {self.config.phone_id}: First audio frame sent to OMT!"
+                        f"🔊 Decoded: {audio_frame.sample_rate}Hz, {audio_frame.layout.name}, "
+                        f"{audio_frame.samples} samples, format={audio_frame.format.name}"
                     )
 
-            # Explicitly delete frame to free memory
-            del audio_frame
+                # Send to OMT
+                success = self.output.send_audio_frame(audio_frame)
 
-            return success
+                if success:
+                    self.audio_frame_count += 1
+                    if self.audio_frame_count == 1:
+                        logger.info(
+                            f"✅ Phone {self.config.phone_id}: First audio frame sent to OMT!"
+                        )
+
+                return success
+
+            except (av.InvalidDataError, av.EOFError):
+                # Expected decode errors - don't spam logs
+                return False
+            except Exception as e:
+                # Only log unexpected errors
+                if self.audio_frame_count < 10:  # Log first few errors
+                    logger.error(
+                        f"❌ Error processing audio for Phone {self.config.phone_id}: {e}"
+                    )
+                return False
 
         except Exception as e:
             logger.error(
-                f"❌ Error processing audio for Phone {self.config.phone_id}: {e}"
+                f"❌ Error in process_audio_frame for Phone {self.config.phone_id}: {e}"
             )
             return False
 
@@ -763,17 +807,19 @@ class PhoneStreamHandler:
 
                 # Detect if stuck (receiving data but no frames decoded)
                 current_frame_count = self.video_frame_count
+
                 if (
                     current_frame_count == frames_at_last_check
                     and self.bytes_received > 0
+                    and time_since_last_frame < 10  # Still receiving data
                 ):
                     stuck_checks += 1
                     logger.warning(
-                        f"⚠️ Phone {self.config.phone_id}: Receiving data but no frames decoded "
-                        f"({stuck_checks}/3 checks)"
+                        f"⚠️ Phone {self.config.phone_id}: No new frames "
+                        f"({stuck_checks}/5 checks)"  # CHANGED: 5 checks instead of 3
                     )
 
-                    if stuck_checks >= 3:
+                    if stuck_checks >= 5:  # CHANGED: More tolerant
                         logger.error(
                             f"❌ Phone {self.config.phone_id}: Stream appears frozen "
                             f"({self.bytes_received} bytes received but {current_frame_count} frames)"
@@ -784,6 +830,7 @@ class PhoneStreamHandler:
                     stuck_checks = 0
                     frames_at_last_check = current_frame_count
 
+                # CHANGED: Longer timeout
                 if time_since_last_frame > self.connection_timeout:
                     logger.warning(
                         f"📡 Phone {self.config.phone_id}: No data for {time_since_last_frame:.1f}s, "
