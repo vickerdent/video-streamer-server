@@ -208,13 +208,19 @@ class CameraWidget(QWidget):
                 ):
                     latency_ms = self.handler.average_latency * 1000
                     # Color code latency: green < 100ms, yellow < 200ms, red >= 200ms
-                    if latency_ms < 100:
+                    if latency_ms < 50:
                         latency_icon = "🟢"
+                        quality = "Excellent"
+                    elif latency_ms < 100:
+                        latency_icon = "🟢"
+                        quality = "Good"
                     elif latency_ms < 200:
                         latency_icon = "🟡"
+                        quality = "Fair"
                     else:
                         latency_icon = "🔴"
-                    stats_parts.append(f"{latency_icon} {latency_ms:.0f}ms")
+                        quality = "Poor"
+                    stats_parts.append(f"{latency_icon} {quality} - {latency_ms:.0f}ms")
 
                 if (
                     hasattr(self.handler, "battery_percent")

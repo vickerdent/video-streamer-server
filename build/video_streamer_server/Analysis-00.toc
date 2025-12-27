@@ -426,6 +426,18 @@
   ('server.handler',
    'D:\\Ongoing Work\\public-streamer\\src\\server\\handler.py',
    'PYMODULE'),
+  ('psutil',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\__init__.py',
+   'PYMODULE'),
+  ('psutil._pswindows',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\_pswindows.py',
+   'PYMODULE'),
+  ('psutil._common',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\_common.py',
+   'PYMODULE'),
   ('server.bridge',
    'D:\\Ongoing Work\\public-streamer\\src\\server\\bridge.py',
    'PYMODULE'),
@@ -1227,8 +1239,8 @@
    'PYMODULE'),
   ('_py_warnings', 'C:\\Python314\\Lib\\_py_warnings.py', 'PYMODULE'),
   ('tracemalloc', 'C:\\Python314\\Lib\\tracemalloc.py', 'PYMODULE'),
-  ('_py_abc', 'C:\\Python314\\Lib\\_py_abc.py', 'PYMODULE'),
   ('stringprep', 'C:\\Python314\\Lib\\stringprep.py', 'PYMODULE'),
+  ('_py_abc', 'C:\\Python314\\Lib\\_py_abc.py', 'PYMODULE'),
   ('tempfile', 'C:\\Python314\\Lib\\tempfile.py', 'PYMODULE'),
   ('constants',
    'D:\\Ongoing Work\\public-streamer\\src\\constants.py',
@@ -1515,109 +1527,65 @@
   ('pathlib._os', 'C:\\Python314\\Lib\\pathlib\\_os.py', 'PYMODULE'),
   ('datetime', 'C:\\Python314\\Lib\\datetime.py', 'PYMODULE'),
   ('_pydatetime', 'C:\\Python314\\Lib\\_pydatetime.py', 'PYMODULE')],
- [('av.libs\\libx264-165-11ed6a233462fe268a51e595a3873920.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libx264-165-11ed6a233462fe268a51e595a3873920.dll',
-   'BINARY'),
-  ('av.libs\\libopencore-amrnb-0-affa633fc615dfc51dcdbda6f66c9f7f.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopencore-amrnb-0-affa633fc615dfc51dcdbda6f66c9f7f.dll',
-   'BINARY'),
-  ('av.libs\\zlib1-93beefd91b990aa9e40396de359419b6.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\zlib1-93beefd91b990aa9e40396de359419b6.dll',
-   'BINARY'),
-  ('av.libs\\libx265-eee5149aa3046c760a0c36ff7d4dbca9.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libx265-eee5149aa3046c760a0c36ff7d4dbca9.dll',
-   'BINARY'),
-  ('av.libs\\libopencore-amrwb-0-45aabdc5d64384f6953da9b5e43a5203.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopencore-amrwb-0-45aabdc5d64384f6953da9b5e43a5203.dll',
-   'BINARY'),
-  ('av.libs\\libsharpyuv-617cdf58d1e7a3f6166b0522905c9c91.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libsharpyuv-617cdf58d1e7a3f6166b0522905c9c91.dll',
-   'BINARY'),
-  ('av.libs\\libwebpmux-af63085d15621f8a1d30c7060cdde1ce.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libwebpmux-af63085d15621f8a1d30c7060cdde1ce.dll',
-   'BINARY'),
-  ('av.libs\\swscale-9-76399095ca2629e278fc77396bd50d84.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\swscale-9-76399095ca2629e278fc77396bd50d84.dll',
-   'BINARY'),
-  ('av.libs\\libogg-0-fe7e666b50bb2ca359edd022765d4d82.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libogg-0-fe7e666b50bb2ca359edd022765d4d82.dll',
-   'BINARY'),
-  ('av.libs\\avfilter-11-3c27319333c80da03690c986db8adec1.dll',
+ [('av.libs\\avfilter-11-3c27319333c80da03690c986db8adec1.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avfilter-11-3c27319333c80da03690c986db8adec1.dll',
-   'BINARY'),
-  ('av.libs\\libstdc++-6-327705944359b51c39090f5437337383.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libstdc++-6-327705944359b51c39090f5437337383.dll',
-   'BINARY'),
-  ('av.libs\\libopenh264-7-a28855b065d509c784905ccac2f8795e.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopenh264-7-a28855b065d509c784905ccac2f8795e.dll',
-   'BINARY'),
-  ('av.libs\\libSvtAv1Enc-b3321ebbb409cdba6f80e04879fa02ce.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libSvtAv1Enc-b3321ebbb409cdba6f80e04879fa02ce.dll',
-   'BINARY'),
-  ('av.libs\\libwinpthread-1-7f19735fedb461389ef94ff4057cef96.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libwinpthread-1-7f19735fedb461389ef94ff4057cef96.dll',
-   'BINARY'),
-  ('av.libs\\libwebp-ef9945e008bb2b4713ea1e50d9500b42.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libwebp-ef9945e008bb2b4713ea1e50d9500b42.dll',
-   'BINARY'),
-  ('av.libs\\avcodec-62-0e5d10f45b1f7779d52f41b1cb11c018.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avcodec-62-0e5d10f45b1f7779d52f41b1cb11c018.dll',
-   'BINARY'),
-  ('av.libs\\swresample-6-95685c119c5e1fde7518042944eb4285.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\swresample-6-95685c119c5e1fde7518042944eb4285.dll',
-   'BINARY'),
-  ('av.libs\\libmp3lame-0-7b58a586180b0da69d581418c03934ab.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libmp3lame-0-7b58a586180b0da69d581418c03934ab.dll',
    'BINARY'),
   ('av.libs\\libvorbis-0-9f8e53f2007c797f8da9c211955cfc71.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libvorbis-0-9f8e53f2007c797f8da9c211955cfc71.dll',
    'BINARY'),
-  ('av.libs\\libtwolame-0-94e54544e90421ca877542fdde20071a.dll',
+  ('av.libs\\swscale-9-76399095ca2629e278fc77396bd50d84.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libtwolame-0-94e54544e90421ca877542fdde20071a.dll',
-   'BINARY'),
-  ('av.libs\\libspeex-1-eb1452e6457b86d368a396e6a22e97e0.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libspeex-1-eb1452e6457b86d368a396e6a22e97e0.dll',
-   'BINARY'),
-  ('av.libs\\avformat-62-407dba287210475ea61d13af276e616a.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avformat-62-407dba287210475ea61d13af276e616a.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\swscale-9-76399095ca2629e278fc77396bd50d84.dll',
    'BINARY'),
   ('av.libs\\libopus-0-7b214f1ef05bbddd97a06d50c4c475c4.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopus-0-7b214f1ef05bbddd97a06d50c4c475c4.dll',
    'BINARY'),
-  ('av.libs\\libvorbisenc-2-ffa4b4c659a31d546be381656f040a78.dll',
+  ('av.libs\\zlib1-93beefd91b990aa9e40396de359419b6.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libvorbisenc-2-ffa4b4c659a31d546be381656f040a78.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\zlib1-93beefd91b990aa9e40396de359419b6.dll',
    'BINARY'),
   ('av.libs\\libgcc_s_seh-1-2a627f0e950d831468ca56f6918ee6b2.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libgcc_s_seh-1-2a627f0e950d831468ca56f6918ee6b2.dll',
    'BINARY'),
-  ('av.libs\\avdevice-62-6a083fbc7c2774f0ed607443d44f35ba.dll',
+  ('av.libs\\libvorbisenc-2-ffa4b4c659a31d546be381656f040a78.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avdevice-62-6a083fbc7c2774f0ed607443d44f35ba.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libvorbisenc-2-ffa4b4c659a31d546be381656f040a78.dll',
+   'BINARY'),
+  ('av.libs\\avcodec-62-0e5d10f45b1f7779d52f41b1cb11c018.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avcodec-62-0e5d10f45b1f7779d52f41b1cb11c018.dll',
+   'BINARY'),
+  ('av.libs\\libogg-0-fe7e666b50bb2ca359edd022765d4d82.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libogg-0-fe7e666b50bb2ca359edd022765d4d82.dll',
+   'BINARY'),
+  ('av.libs\\avformat-62-407dba287210475ea61d13af276e616a.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avformat-62-407dba287210475ea61d13af276e616a.dll',
+   'BINARY'),
+  ('av.libs\\libopencore-amrwb-0-45aabdc5d64384f6953da9b5e43a5203.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopencore-amrwb-0-45aabdc5d64384f6953da9b5e43a5203.dll',
+   'BINARY'),
+  ('av.libs\\libdav1d-51b9f1556841dcb5a57beacf6dcd1595.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libdav1d-51b9f1556841dcb5a57beacf6dcd1595.dll',
+   'BINARY'),
+  ('av.libs\\libopencore-amrnb-0-affa633fc615dfc51dcdbda6f66c9f7f.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopencore-amrnb-0-affa633fc615dfc51dcdbda6f66c9f7f.dll',
+   'BINARY'),
+  ('av.libs\\libtwolame-0-94e54544e90421ca877542fdde20071a.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libtwolame-0-94e54544e90421ca877542fdde20071a.dll',
+   'BINARY'),
+  ('av.libs\\libstdc++-6-327705944359b51c39090f5437337383.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libstdc++-6-327705944359b51c39090f5437337383.dll',
    'BINARY'),
   ('av.libs\\libaom-ff6891b94cecc5968480531b3dccc8d5.dll',
    'D:\\Ongoing '
@@ -1627,21 +1595,65 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libgmp-10-131edc8db6e092035cfdddafefe84ca7.dll',
    'BINARY'),
-  ('av.libs\\libdav1d-51b9f1556841dcb5a57beacf6dcd1595.dll',
+  ('av.libs\\libiconv-2-60c678f49f8bf5c96e4522845408d795.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libdav1d-51b9f1556841dcb5a57beacf6dcd1595.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libiconv-2-60c678f49f8bf5c96e4522845408d795.dll',
    'BINARY'),
-  ('av.libs\\libvpx-1-da6fca51fbce21159980b1dadcd86dfb.dll',
+  ('av.libs\\libsharpyuv-617cdf58d1e7a3f6166b0522905c9c91.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libvpx-1-da6fca51fbce21159980b1dadcd86dfb.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libsharpyuv-617cdf58d1e7a3f6166b0522905c9c91.dll',
+   'BINARY'),
+  ('av.libs\\libx265-eee5149aa3046c760a0c36ff7d4dbca9.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libx265-eee5149aa3046c760a0c36ff7d4dbca9.dll',
+   'BINARY'),
+  ('av.libs\\libmp3lame-0-7b58a586180b0da69d581418c03934ab.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libmp3lame-0-7b58a586180b0da69d581418c03934ab.dll',
+   'BINARY'),
+  ('av.libs\\avdevice-62-6a083fbc7c2774f0ed607443d44f35ba.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avdevice-62-6a083fbc7c2774f0ed607443d44f35ba.dll',
+   'BINARY'),
+  ('av.libs\\libwebpmux-af63085d15621f8a1d30c7060cdde1ce.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libwebpmux-af63085d15621f8a1d30c7060cdde1ce.dll',
+   'BINARY'),
+  ('av.libs\\libwebp-ef9945e008bb2b4713ea1e50d9500b42.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libwebp-ef9945e008bb2b4713ea1e50d9500b42.dll',
+   'BINARY'),
+  ('av.libs\\swresample-6-95685c119c5e1fde7518042944eb4285.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\swresample-6-95685c119c5e1fde7518042944eb4285.dll',
+   'BINARY'),
+  ('av.libs\\libwinpthread-1-7f19735fedb461389ef94ff4057cef96.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libwinpthread-1-7f19735fedb461389ef94ff4057cef96.dll',
+   'BINARY'),
+  ('av.libs\\libx264-165-11ed6a233462fe268a51e595a3873920.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libx264-165-11ed6a233462fe268a51e595a3873920.dll',
+   'BINARY'),
+  ('av.libs\\libopenh264-7-a28855b065d509c784905ccac2f8795e.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libopenh264-7-a28855b065d509c784905ccac2f8795e.dll',
+   'BINARY'),
+  ('av.libs\\libspeex-1-eb1452e6457b86d368a396e6a22e97e0.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libspeex-1-eb1452e6457b86d368a396e6a22e97e0.dll',
    'BINARY'),
   ('av.libs\\avutil-60-4a46c55818495f36528dd037c395c733.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\avutil-60-4a46c55818495f36528dd037c395c733.dll',
    'BINARY'),
-  ('av.libs\\libiconv-2-60c678f49f8bf5c96e4522845408d795.dll',
+  ('av.libs\\libvpx-1-da6fca51fbce21159980b1dadcd86dfb.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libiconv-2-60c678f49f8bf5c96e4522845408d795.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libvpx-1-da6fca51fbce21159980b1dadcd86dfb.dll',
+   'BINARY'),
+  ('av.libs\\libSvtAv1Enc-b3321ebbb409cdba6f80e04879fa02ce.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\av.libs\\libSvtAv1Enc-b3321ebbb409cdba6f80e04879fa02ce.dll',
    'BINARY'),
   ('libraries\\libomt.dll',
    'D:\\Ongoing Work\\public-streamer\\src\\libraries\\libomt.dll',
@@ -1654,17 +1666,29 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\cv2\\opencv_videoio_ffmpeg4120_64.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qsvg.dll',
+  ('PyQt6\\Qt6\\plugins\\iconengines\\qsvgicon.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qsvg.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\iconengines\\qsvgicon.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qjpeg.dll',
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qpdf.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qjpeg.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qpdf.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qwebp.dll',
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qtga.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qwebp.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qtga.dll',
+   'BINARY'),
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qwbmp.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qwbmp.dll',
+   'BINARY'),
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qgif.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qgif.dll',
+   'BINARY'),
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qicns.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qicns.dll',
    'BINARY'),
   ('PyQt6\\Qt6\\plugins\\imageformats\\qico.dll',
    'D:\\Ongoing '
@@ -1674,21 +1698,9 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\platforms\\qwindows.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qicns.dll',
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qwebp.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qicns.dll',
-   'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\iconengines\\qsvgicon.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\iconengines\\qsvgicon.dll',
-   'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qgif.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qgif.dll',
-   'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qtga.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qtga.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qwebp.dll',
    'BINARY'),
   ('PyQt6\\Qt6\\plugins\\imageformats\\qtiff.dll',
    'D:\\Ongoing '
@@ -1702,17 +1714,17 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\generic\\qtuiotouchplugin.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qpdf.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qpdf.dll',
-   'BINARY'),
   ('PyQt6\\Qt6\\plugins\\platforms\\qminimal.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\platforms\\qminimal.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\plugins\\imageformats\\qwbmp.dll',
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qjpeg.dll',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qwbmp.dll',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qjpeg.dll',
+   'BINARY'),
+  ('PyQt6\\Qt6\\plugins\\imageformats\\qsvg.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\plugins\\imageformats\\qsvg.dll',
    'BINARY'),
   ('PyQt6\\Qt6\\bin\\opengl32sw.dll',
    'D:\\Ongoing '
@@ -1736,6 +1748,10 @@
   ('_ssl.pyd', 'C:\\Python314\\DLLs\\_ssl.pyd', 'EXTENSION'),
   ('_queue.pyd', 'C:\\Python314\\DLLs\\_queue.pyd', 'EXTENSION'),
   ('_ctypes.pyd', 'C:\\Python314\\DLLs\\_ctypes.pyd', 'EXTENSION'),
+  ('psutil\\_psutil_windows.pyd',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd',
+   'EXTENSION'),
   ('_wmi.pyd', 'C:\\Python314\\DLLs\\_wmi.pyd', 'EXTENSION'),
   ('_socket.pyd', 'C:\\Python314\\DLLs\\_socket.pyd', 'EXTENSION'),
   ('_overlapped.pyd', 'C:\\Python314\\DLLs\\_overlapped.pyd', 'EXTENSION'),
@@ -2016,14 +2032,6 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\QtWidgets.pyd',
    'EXTENSION'),
-  ('api-ms-win-crt-string-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-runtime-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
-   'BINARY'),
   ('api-ms-win-crt-math-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-math-l1-1-0.dll',
@@ -2032,67 +2040,75 @@
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-stdio-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-crt-heap-l1-1-0.dll',
+  ('api-ms-win-crt-string-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-heap-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-string-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-convert-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-convert-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-crt-filesystem-l1-1-0.dll',
+  ('api-ms-win-crt-runtime-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-filesystem-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-runtime-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-heap-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-heap-l1-1-0.dll',
    'BINARY'),
   ('VCRUNTIME140.dll', 'C:\\Python314\\VCRUNTIME140.dll', 'BINARY'),
-  ('api-ms-win-crt-conio-l1-1-0.dll',
+  ('api-ms-win-crt-environment-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-conio-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-time-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-time-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-crt-process-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-process-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-environment-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-crt-locale-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-locale-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-crt-environment-l1-1-0.dll',
+  ('api-ms-win-crt-conio-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-environment-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-conio-l1-1-0.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\bin\\Qt6Svg.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Svg.dll',
+  ('api-ms-win-crt-process-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-process-l1-1-0.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\bin\\Qt6Core.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Core.dll',
+  ('api-ms-win-crt-time-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-time-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-crt-filesystem-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-filesystem-l1-1-0.dll',
    'BINARY'),
   ('PyQt6\\Qt6\\bin\\Qt6Gui.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Gui.dll',
    'BINARY'),
-  ('api-ms-win-crt-utility-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-utility-l1-1-0.dll',
+  ('PyQt6\\Qt6\\bin\\Qt6Core.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Core.dll',
+   'BINARY'),
+  ('PyQt6\\Qt6\\bin\\Qt6Svg.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Svg.dll',
+   'BINARY'),
+  ('PyQt6\\Qt6\\bin\\Qt6Pdf.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Pdf.dll',
    'BINARY'),
   ('PyQt6\\Qt6\\bin\\MSVCP140.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\MSVCP140.dll',
    'BINARY'),
   ('VCRUNTIME140_1.dll', 'C:\\Python314\\VCRUNTIME140_1.dll', 'BINARY'),
+  ('api-ms-win-crt-utility-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-crt-utility-l1-1-0.dll',
+   'BINARY'),
   ('PyQt6\\Qt6\\bin\\Qt6Network.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Network.dll',
-   'BINARY'),
-  ('PyQt6\\Qt6\\bin\\Qt6Pdf.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\Qt6Pdf.dll',
    'BINARY'),
   ('PyQt6\\Qt6\\bin\\Qt6Widgets.dll',
    'D:\\Ongoing '
@@ -2109,6 +2125,10 @@
   ('ucrtbase.dll',
    'C:\\Program Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\ucrtbase.dll',
    'BINARY'),
+  ('PyQt6\\Qt6\\bin\\MSVCP140_1.dll',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\MSVCP140_1.dll',
+   'BINARY'),
   ('PyQt6\\Qt6\\bin\\VCRUNTIME140_1.dll',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\VCRUNTIME140_1.dll',
@@ -2121,41 +2141,29 @@
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-synch-l1-2-0.dll',
    'BINARY'),
-  ('PyQt6\\Qt6\\bin\\MSVCP140_1.dll',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin\\MSVCP140_1.dll',
-   'BINARY'),
-  ('api-ms-win-core-sysinfo-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-processenvironment-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-fibers-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-fibers-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-profile-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-debug-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-file-l1-1-0.dll',
-   'BINARY'),
   ('api-ms-win-core-synch-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-synch-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
+  ('api-ms-win-core-timezone-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-util-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-processthreads-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-console-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-debug-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-debug-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-string-l1-1-0.dll',
    'C:\\Program '
@@ -2165,65 +2173,73 @@
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-namedpipe-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-file-l1-2-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-handle-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-libraryloader-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-localization-l1-2-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-processthreads-l1-1-1.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
-   'BINARY'),
   ('api-ms-win-core-datetime-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-datetime-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-console-l1-1-0.dll',
+  ('api-ms-win-core-file-l1-2-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-console-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-file-l1-2-0.dll',
    'BINARY'),
-  ('api-ms-win-core-interlocked-l1-1-0.dll',
+  ('api-ms-win-core-fibers-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-file-l2-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-memory-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-util-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-util-l1-1-0.dll',
-   'BINARY'),
-  ('api-ms-win-core-errorhandling-l1-1-0.dll',
-   'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-errorhandling-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-fibers-l1-1-0.dll',
    'BINARY'),
   ('api-ms-win-core-heap-l1-1-0.dll',
    'C:\\Program '
    'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-heap-l1-1-0.dll',
    'BINARY'),
-  ('api-ms-win-core-timezone-l1-1-0.dll',
+  ('api-ms-win-core-libraryloader-l1-1-0.dll',
    'C:\\Program '
-   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-timezone-l1-1-0.dll',
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-libraryloader-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-interlocked-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-interlocked-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-rtlsupport-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-rtlsupport-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-handle-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-handle-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-memory-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-memory-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-processthreads-l1-1-1.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-processthreads-l1-1-1.dll',
+   'BINARY'),
+  ('api-ms-win-core-processenvironment-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-processenvironment-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-file-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-file-l2-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-file-l2-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-sysinfo-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-sysinfo-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-profile-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-profile-l1-1-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-localization-l1-2-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-localization-l1-2-0.dll',
+   'BINARY'),
+  ('api-ms-win-core-errorhandling-l1-1-0.dll',
+   'C:\\Program '
+   'Files\\Microsoft\\jdk-17.0.17.10-hotspot\\bin\\api-ms-win-core-errorhandling-l1-1-0.dll',
    'BINARY')],
  [],
  [],
@@ -2233,6 +2249,10 @@
   ('assets\\app_logo.png',
    'D:\\Ongoing Work\\public-streamer\\src\\assets\\app_logo.png',
    'DATA'),
+  ('cv2\\load_config_py3.py',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\cv2\\load_config_py3.py',
+   'DATA'),
   ('cv2\\config.py',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\cv2\\config.py',
@@ -2240,10 +2260,6 @@
   ('cv2\\config-3.py',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\cv2\\config-3.py',
-   'DATA'),
-  ('cv2\\load_config_py3.py',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\cv2\\load_config_py3.py',
    'DATA'),
   ('certifi\\cacert.pem',
    'D:\\Ongoing '
@@ -2253,157 +2269,257 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\certifi\\py.typed',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_tr.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_gd.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_tr.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_gd.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_fr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_fr.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qt_hu.qm',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_hu.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_en.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_ja.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_en.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ja.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_en.qm',
+  ('PyQt6\\Qt6\\translations\\qt_help_ka.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_en.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ka.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_pl.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_sk.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_pl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_ka.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ka.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_he.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_he.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_bg.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_bg.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_pl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_pl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_es.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_es.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_sl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_sl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_cs.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_cs.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_it.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_it.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_fr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_fr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_en.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_en.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_gl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_gl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_es.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_es.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_hr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_hr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_fa.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_fa.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_ja.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ja.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_fa.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_fa.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_gl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_gl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_nl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_nl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_nl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_nl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_hr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_hr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_nn.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_nn.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_fi.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_fi.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_ru.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ru.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_hr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_hr.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_sk.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qtbase_pl.qm',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_pl.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_ja.qm',
+  ('PyQt6\\Qt6\\translations\\qt_bg.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ja.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_bg.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_lv.qm',
+  ('PyQt6\\Qt6\\translations\\qt_ar.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_lv.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ar.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_de.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_hr.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_de.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_hr.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_ru.qm',
+  ('PyQt6\\Qt6\\translations\\qt_de.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ru.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_de.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_tr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_tr.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_pt_BR.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_pt_BR.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_ru.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ru.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_fa.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_fa.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_it.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_it.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_uk.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_uk.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_hr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_hr.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_hu.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_hu.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_ca.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ca.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_ka.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ka.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_pl.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_pl.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_en.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_en.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_fi.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_fi.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_bg.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_bg.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_cs.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_cs.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_sv.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_sv.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_ko.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ko.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_fr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_fr.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_zh_TW.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_zh_TW.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_tr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_tr.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_zh_CN.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_zh_CN.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_nn.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_nn.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qtbase_fi.qm',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_fi.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_lg.qm',
+  ('PyQt6\\Qt6\\translations\\qt_he.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_lg.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_he.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_bg.qm',
+  ('PyQt6\\Qt6\\translations\\qt_help_de.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_bg.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_de.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_zh_TW.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_zh_TW.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_ar.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ar.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_zh_CN.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_zh_CN.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_ja.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ja.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_ko.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ko.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_fa.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_fa.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_hr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_hr.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qt_help_zh_CN.qm',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_zh_CN.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_nn.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_nn.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_gl.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_gl.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_pt_BR.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_pt_BR.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_es.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_es.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_de.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_de.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_fr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_fr.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_it.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_it.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_da.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_da.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_es.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_es.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_en.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_en.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_da.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_da.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_lg.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_lg.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_it.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_it.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_es.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_es.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_en.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_en.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_gl.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_gl.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_pl.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_pl.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_gd.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_gd.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_ca.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ca.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qtbase_lv.qm',
    'D:\\Ongoing '
@@ -2413,249 +2529,129 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_lg.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_sk.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_nl.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_sk.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_pt_BR.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_pt_BR.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_ka.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ka.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_ko.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ko.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_zh_TW.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_zh_TW.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_he.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_he.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_hu.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_hu.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_zh_CN.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_zh_CN.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_da.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_da.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_es.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_es.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_tr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_tr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_ru.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ru.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_sk.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_sk.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_sk.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_sk.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_lt.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_lt.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_bg.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_bg.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_uk.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_uk.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_de.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_de.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_ja.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ja.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_uk.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_uk.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_sv.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_sv.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_ca.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ca.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_it.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_it.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_it.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_it.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_zh_TW.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_zh_TW.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_fr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_fr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_ar.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ar.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_gd.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_gd.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_nn.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_nn.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_ka.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ka.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_ar.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ar.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_cs.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_cs.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_tr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_tr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_sv.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_sv.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_ar.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ar.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_zh_TW.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_zh_TW.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_nl.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qt_nn.qm',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_nn.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_ca.qm',
+  ('PyQt6\\Qt6\\translations\\qt_help_sv.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ca.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_sv.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_hu.qm',
+  ('PyQt6\\Qt6\\translations\\qt_ko.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_hu.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ko.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_ko.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_he.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ko.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_he.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_cs.qm',
+  ('PyQt6\\Qt6\\translations\\qt_uk.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_cs.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_uk.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_sv.qm',
+  ('PyQt6\\Qt6\\translations\\qt_sl.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_sv.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_sl.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_gd.qm',
+  ('PyQt6\\Qt6\\translations\\qt_lv.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_gd.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_fr.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_fr.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_ca.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ca.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_pt_BR.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_pt_BR.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_pt_PT.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_pt_PT.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_zh_CN.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_zh_CN.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_ko.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ko.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_uk.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_uk.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_nl.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_nl.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_da.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_da.qm',
-   'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_da.qm',
-   'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_da.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_lv.qm',
    'DATA'),
   ('PyQt6\\Qt6\\translations\\qt_help_sl.qm',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_sl.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qtbase_de.qm',
+  ('PyQt6\\Qt6\\translations\\qt_pt_PT.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_de.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_pt_PT.qm',
    'DATA'),
-  ('PyQt6\\Qt6\\translations\\qt_help_pt_BR.qm',
+  ('PyQt6\\Qt6\\translations\\qtbase_ru.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_pt_BR.qm',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ru.qm',
    'DATA'),
-  ('numpy-2.2.6.dist-info\\entry_points.txt',
+  ('PyQt6\\Qt6\\translations\\qt_cs.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\entry_points.txt',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_cs.qm',
    'DATA'),
-  ('numpy-2.2.6.dist-info\\RECORD',
+  ('PyQt6\\Qt6\\translations\\qtbase_hu.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\RECORD',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_hu.qm',
    'DATA'),
-  ('numpy-2.2.6.dist-info\\METADATA',
+  ('PyQt6\\Qt6\\translations\\qt_ja.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\METADATA',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_ja.qm',
    'DATA'),
-  ('numpy-2.2.6.dist-info\\LICENSE.txt',
+  ('PyQt6\\Qt6\\translations\\qt_sk.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\LICENSE.txt',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_sk.qm',
    'DATA'),
-  ('numpy-2.2.6.dist-info\\WHEEL',
+  ('PyQt6\\Qt6\\translations\\qtbase_ka.qm',
    'D:\\Ongoing '
-   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\WHEEL',
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ka.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_lt.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_lt.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_bg.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_bg.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_ca.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ca.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_uk.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_uk.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_sv.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_sv.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_da.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_da.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_zh_TW.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_zh_TW.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_tr.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_tr.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_ru.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_ru.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_nl.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_nl.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_pt_BR.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_pt_BR.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_ar.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_ar.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qtbase_cs.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qtbase_cs.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_nl.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_nl.qm',
+   'DATA'),
+  ('PyQt6\\Qt6\\translations\\qt_help_sk.qm',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\translations\\qt_help_sk.qm',
    'DATA'),
   ('numpy-2.2.6.dist-info\\INSTALLER',
    'D:\\Ongoing '
@@ -2664,6 +2660,26 @@
   ('numpy-2.2.6.dist-info\\REQUESTED',
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\REQUESTED',
+   'DATA'),
+  ('numpy-2.2.6.dist-info\\entry_points.txt',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\entry_points.txt',
+   'DATA'),
+  ('numpy-2.2.6.dist-info\\WHEEL',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\WHEEL',
+   'DATA'),
+  ('numpy-2.2.6.dist-info\\METADATA',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\METADATA',
+   'DATA'),
+  ('numpy-2.2.6.dist-info\\RECORD',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\RECORD',
+   'DATA'),
+  ('numpy-2.2.6.dist-info\\LICENSE.txt',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\numpy-2.2.6.dist-info\\LICENSE.txt',
    'DATA'),
   ('cv2\\__init__.py',
    'D:\\Ongoing '
@@ -2756,35 +2772,16 @@
    'D:\\Ongoing '
    'Work\\public-streamer\\.venv\\Lib\\site-packages\\cv2\\load_config_py3.py',
    'PYMODULE'),
+  ('posixpath', 'C:\\Python314\\Lib\\posixpath.py', 'PYMODULE'),
   ('ntpath', 'C:\\Python314\\Lib\\ntpath.py', 'PYMODULE'),
-  ('collections', 'C:\\Python314\\Lib\\collections\\__init__.py', 'PYMODULE'),
-  ('linecache', 'C:\\Python314\\Lib\\linecache.py', 'PYMODULE'),
-  ('functools', 'C:\\Python314\\Lib\\functools.py', 'PYMODULE'),
-  ('operator', 'C:\\Python314\\Lib\\operator.py', 'PYMODULE'),
-  ('sre_parse', 'C:\\Python314\\Lib\\sre_parse.py', 'PYMODULE'),
-  ('locale', 'C:\\Python314\\Lib\\locale.py', 'PYMODULE'),
-  ('stat', 'C:\\Python314\\Lib\\stat.py', 'PYMODULE'),
-  ('genericpath', 'C:\\Python314\\Lib\\genericpath.py', 'PYMODULE'),
-  ('enum', 'C:\\Python314\\Lib\\enum.py', 'PYMODULE'),
-  ('_collections_abc', 'C:\\Python314\\Lib\\_collections_abc.py', 'PYMODULE'),
-  ('codecs', 'C:\\Python314\\Lib\\codecs.py', 'PYMODULE'),
-  ('warnings', 'C:\\Python314\\Lib\\warnings.py', 'PYMODULE'),
-  ('heapq', 'C:\\Python314\\Lib\\heapq.py', 'PYMODULE'),
-  ('copyreg', 'C:\\Python314\\Lib\\copyreg.py', 'PYMODULE'),
-  ('keyword', 'C:\\Python314\\Lib\\keyword.py', 'PYMODULE'),
-  ('sre_constants', 'C:\\Python314\\Lib\\sre_constants.py', 'PYMODULE'),
-  ('reprlib', 'C:\\Python314\\Lib\\reprlib.py', 'PYMODULE'),
-  ('_weakrefset', 'C:\\Python314\\Lib\\_weakrefset.py', 'PYMODULE'),
-  ('weakref', 'C:\\Python314\\Lib\\weakref.py', 'PYMODULE'),
   ('sre_compile', 'C:\\Python314\\Lib\\sre_compile.py', 'PYMODULE'),
   ('re._parser', 'C:\\Python314\\Lib\\re\\_parser.py', 'PYMODULE'),
   ('re._constants', 'C:\\Python314\\Lib\\re\\_constants.py', 'PYMODULE'),
   ('re._compiler', 'C:\\Python314\\Lib\\re\\_compiler.py', 'PYMODULE'),
   ('re._casefix', 'C:\\Python314\\Lib\\re\\_casefix.py', 'PYMODULE'),
   ('re', 'C:\\Python314\\Lib\\re\\__init__.py', 'PYMODULE'),
-  ('types', 'C:\\Python314\\Lib\\types.py', 'PYMODULE'),
-  ('io', 'C:\\Python314\\Lib\\io.py', 'PYMODULE'),
-  ('abc', 'C:\\Python314\\Lib\\abc.py', 'PYMODULE'),
+  ('warnings', 'C:\\Python314\\Lib\\warnings.py', 'PYMODULE'),
+  ('operator', 'C:\\Python314\\Lib\\operator.py', 'PYMODULE'),
   ('encodings.zlib_codec',
    'C:\\Python314\\Lib\\encodings\\zlib_codec.py',
    'PYMODULE'),
@@ -3030,6 +3027,25 @@
    'C:\\Python314\\Lib\\encodings\\_win_cp_codecs.py',
    'PYMODULE'),
   ('encodings', 'C:\\Python314\\Lib\\encodings\\__init__.py', 'PYMODULE'),
-  ('posixpath', 'C:\\Python314\\Lib\\posixpath.py', 'PYMODULE'),
+  ('reprlib', 'C:\\Python314\\Lib\\reprlib.py', 'PYMODULE'),
+  ('locale', 'C:\\Python314\\Lib\\locale.py', 'PYMODULE'),
+  ('sre_constants', 'C:\\Python314\\Lib\\sre_constants.py', 'PYMODULE'),
+  ('genericpath', 'C:\\Python314\\Lib\\genericpath.py', 'PYMODULE'),
+  ('abc', 'C:\\Python314\\Lib\\abc.py', 'PYMODULE'),
+  ('types', 'C:\\Python314\\Lib\\types.py', 'PYMODULE'),
+  ('copyreg', 'C:\\Python314\\Lib\\copyreg.py', 'PYMODULE'),
+  ('weakref', 'C:\\Python314\\Lib\\weakref.py', 'PYMODULE'),
+  ('collections', 'C:\\Python314\\Lib\\collections\\__init__.py', 'PYMODULE'),
+  ('enum', 'C:\\Python314\\Lib\\enum.py', 'PYMODULE'),
+  ('_collections_abc', 'C:\\Python314\\Lib\\_collections_abc.py', 'PYMODULE'),
+  ('linecache', 'C:\\Python314\\Lib\\linecache.py', 'PYMODULE'),
+  ('keyword', 'C:\\Python314\\Lib\\keyword.py', 'PYMODULE'),
+  ('functools', 'C:\\Python314\\Lib\\functools.py', 'PYMODULE'),
+  ('io', 'C:\\Python314\\Lib\\io.py', 'PYMODULE'),
+  ('stat', 'C:\\Python314\\Lib\\stat.py', 'PYMODULE'),
+  ('heapq', 'C:\\Python314\\Lib\\heapq.py', 'PYMODULE'),
+  ('sre_parse', 'C:\\Python314\\Lib\\sre_parse.py', 'PYMODULE'),
+  ('_weakrefset', 'C:\\Python314\\Lib\\_weakrefset.py', 'PYMODULE'),
+  ('codecs', 'C:\\Python314\\Lib\\codecs.py', 'PYMODULE'),
   ('os', 'C:\\Python314\\Lib\\os.py', 'PYMODULE'),
   ('traceback', 'C:\\Python314\\Lib\\traceback.py', 'PYMODULE')])

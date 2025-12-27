@@ -1095,6 +1095,18 @@
   ('pkgutil', 'C:\\Python314\\Lib\\pkgutil.py', 'PYMODULE'),
   ('platform', 'C:\\Python314\\Lib\\platform.py', 'PYMODULE'),
   ('pprint', 'C:\\Python314\\Lib\\pprint.py', 'PYMODULE'),
+  ('psutil',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\__init__.py',
+   'PYMODULE'),
+  ('psutil._common',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\_common.py',
+   'PYMODULE'),
+  ('psutil._pswindows',
+   'D:\\Ongoing '
+   'Work\\public-streamer\\.venv\\Lib\\site-packages\\psutil\\_pswindows.py',
+   'PYMODULE'),
   ('py_compile', 'C:\\Python314\\Lib\\py_compile.py', 'PYMODULE'),
   ('pydoc', 'C:\\Python314\\Lib\\pydoc.py', 'PYMODULE'),
   ('pydoc_data', 'C:\\Python314\\Lib\\pydoc_data\\__init__.py', 'PYMODULE'),

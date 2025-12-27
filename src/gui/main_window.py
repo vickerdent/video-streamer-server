@@ -610,7 +610,34 @@ class MainWindow(QMainWindow):
             )
 
     def on_error(self, error):
-        QMessageBox.critical(self, "Server Error", f"An error occurred:\n{error}")
+        """Display user-friendly error messages"""
+        # Parse error for user-friendly message
+        error_str = str(error)
+
+        if "port" in error_str.lower() and "use" in error_str.lower():
+            user_message = (
+                "Port already in use.\n\n"
+                "Please stop the server and try again, or change the port in Settings."
+            )
+        elif "bind" in error_str.lower():
+            user_message = (
+                "Cannot bind to network interface.\n\n"
+                "The selected network may be unavailable. Please check your network settings."
+            )
+        elif "connection" in error_str.lower():
+            user_message = (
+                "Connection error.\n\n"
+                "Please check that both devices are on the same network."
+            )
+        elif "omt" in error_str.lower():
+            user_message = (
+                "OMT streaming error.\n\n"
+                "Please check that vMix is running and OMT inputs are configured."
+            )
+        else:
+            user_message = f"Server Error:\n\n{error}"
+
+        QMessageBox.critical(self, "Server Error", user_message)
 
     def on_network_status_changed(self, available: bool, ip: str):
         """Handle network status changes"""

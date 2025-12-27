@@ -1,5 +1,6 @@
 import asyncio
 import logging
+from collections import deque
 from typing import Any
 
 import netifaces
@@ -277,6 +278,7 @@ class OMTBridgeServer:
         consecutive_failures = 0
         max_failures = 2
         check_interval = 1.0  # Check every 1 second for faster detection
+        quality_samples = deque(maxlen=10)  # Track connection quality
 
         logger.info(f"🔍 Network monitoring started for {self.current_bind_ip}")
 
@@ -291,7 +293,7 @@ class OMTBridgeServer:
                         addr["ip"] == self.current_bind_ip for addr in current_ips
                     )
 
-                    # IMPROVED: Also check if we can still bind to the port
+                    # Also check if we can still bind to the port
                     if ip_still_exists:
                         # Try to verify the network is actually working
                         try:
@@ -306,6 +308,33 @@ class OMTBridgeServer:
                             )  # Bind to any free port
                             test_sock.close()
                             consecutive_failures = 0  # Reset on success
+
+                            # Calculate connection quality
+                            if self.active_handlers:
+                                total_latency = 0
+                                handler_count = 0
+
+                                for phone_id, handler in self.active_handlers.items():
+                                    if (
+                                        hasattr(handler, "average_latency")
+                                        and handler.average_latency > 0
+                                    ):
+                                        total_latency += handler.average_latency
+                                        handler_count += 1
+
+                                if handler_count > 0:
+                                    avg_latency = total_latency / handler_count
+                                    quality_samples.append(avg_latency)
+
+                                    # Warn if quality degrades
+                                    if len(quality_samples) >= 5:
+                                        recent_avg = sum(quality_samples) / len(
+                                            quality_samples
+                                        )
+                                        if recent_avg > 0.2:  # > 200ms average
+                                            logger.warning(
+                                                f"⚠️ Network quality degraded: {recent_avg * 1000:.0f}ms avg latency"
+                                            )
                         except OSError:
                             ip_still_exists = False
                             logger.warning(

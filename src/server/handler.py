@@ -368,12 +368,13 @@ class PhoneStreamHandler:
                     # Memory monitoring
                     process = psutil.Process()
                     memory_mb = process.memory_info().rss / 1024 / 1024
+                    cpu_percent = process.cpu_percent()
 
                     logger.info(
                         f"📊 Phone {self.config.phone_id}: "
                         f"{video_frames_decoded}V/{audio_frames_decoded}A decoded (ratio: {av_ratio:.2f}), "
                         f"{mb:.2f} MB, {avg_latency * 1000:.1f}ms latency, "
-                        f"Memory: {memory_mb:.1f} MB"
+                        f"💾 {memory_mb:.1f} MB, ⚙️ {cpu_percent:.1f}% CPU"
                     )
 
                     # Force garbage collection every 5 minutes
